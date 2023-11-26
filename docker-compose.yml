@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  app-bind-mount: #Bind Mount
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./data:/data
+
+  app-volume: #Server
+    build: .
+    ports:
+      - "3001:3000"
+    volumes:
+      - text-volume:/data
+
+volumes:
+  text-volume:
